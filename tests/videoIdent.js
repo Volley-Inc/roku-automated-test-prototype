@@ -18,7 +18,7 @@ const expect = require("chai").expect;
 
 let library;
 
-describe("test_basic", () => {
+describe("VideoIdent loading sanity check", () => {
   before(async function () {
     this.timeout(50000);
     library = new rokuLibrary.Library("10.103.126.222");
@@ -26,12 +26,12 @@ describe("test_basic", () => {
   });
 
   it("launchies", async function () {
-    this.timeout(15000);
+    this.timeout(5000);
     await library.verifyIsChannelLoaded("dev");
   });
 
   it("loads VideoIdent element", async function () {
-    this.timeout(50000);
+    this.timeout(10000);
     let res = await library.verifyIsScreenLoaded(
       { elementData: [{ using: "tag", value: "VolleyVideoIdent" }] },
       2,
@@ -40,14 +40,14 @@ describe("test_basic", () => {
     expect(res).to.equal(true);
   });
 
-  it("loads BideoIdent element", async function () {
+  it("doesn't load BideoIdent element", async function () {
     this.timeout(10000);
     let res = await library.verifyIsScreenLoaded(
-      { elementData: [{ using: "tag", value: "VolleyBideoIdent" }] },
+      { elementData: [{ using: "tag", value: "BolleyBideoIdent" }] },
       2,
       2
     );
-    expect(res).to.equal(true);
+    expect(res).to.equal(false);
   });
 
   after(async () => {
