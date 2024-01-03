@@ -8,3 +8,4 @@
 6. `./bin/RokuWebDriver_mac`
 7. new terminal window
 8. `mocha tests/videoIdent.js`
+9. yeeeeeee
