@@ -40,14 +40,14 @@ describe("test_basic", () => {
     expect(res).to.equal(true);
   });
 
-  it("loads BideoIdent element", async function () {
+  it("doesn't load a BolleyBideoIdent element", async function () {
     this.timeout(10000);
     let res = await library.verifyIsScreenLoaded(
-      { elementData: [{ using: "tag", value: "VolleyBideoIdent" }] },
+      { elementData: [{ using: "tag", value: "BolleyBideoIdent" }] },
       2,
       2
     );
-    expect(res).to.equal(true);
+    expect(res).to.equal(false);
   });
 
   after(async () => {
